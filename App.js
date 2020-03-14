@@ -1,18 +1,40 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {ScrollView} from 'react-native';
 import styled from 'styled-components'
 import Card from './components/Cards';
+import { SafeAreaView } from "react-native";
+import { NotificationIcon } from "./components/icons";
 
 export default function App() {
   return (
     <Container>
+    <SafeAreaView>
     <TitleBar>
     <Avatar source={require('./assets/teekay.jpg')}/>
       <Title>Welcome back</Title>
       <Name>Olatokunbo</Name>
+      <NotificationIcon
+                style={{ position: "absolute", right: 20, top: 5 }}
+              />
       </TitleBar>
       <Subtitle>Countinue Learning</Subtitle>
-      <Card />
+      <ScrollView horizontal={true} style={{ paddingBottom: 30 }} showsHorizontalScrollIndicator={false}>
+      <Card 
+       title='Styled Components' 
+       image={require('./assets/background2.jpg')} 
+       caption='React Native'
+       logo={require("./assets/logo-react.png")}
+       subtitle="5 of 12 sections"
+       />
+      <Card 
+       title='Styled Components 2' 
+       image={require('./assets/background1.jpg')} 
+       caption='React Native'
+       logo={require("./assets/logo-react.png")}
+       subtitle="5 of 12 sections"
+       />
+       </ScrollView>
+       </SafeAreaView>
     </Container>
   );
 }
